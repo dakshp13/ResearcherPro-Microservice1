@@ -1,4 +1,4 @@
-package com.researcherpro.microservice1;
+package com.researcherpro.microservice1.RabbitMQ;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
