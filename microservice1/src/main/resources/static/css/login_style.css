@@ -5,13 +5,13 @@ body {
     font-family: sans-serif;
     line-height: 1.5;
     min-height: 100vh;
-    background: #f3f3f3;
+    background: #f0f0f5;
     flex-direction: column;
     margin: 0;
 }
 
 h1 {
-    color: #4CAF50;
+    color: #000000;
 }
 
 label {
@@ -20,7 +20,7 @@ label {
     margin-top: 10px;
     margin-bottom: 5px;
     text-align: left;
-    color: #555;
+    color: #000000;
     font-weight: bold;
 }
 
@@ -42,9 +42,13 @@ button {
     border: none;
     color: white;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #33c4c4;
     width: 100%;
     font-size: 16px;
+}
+
+button:hover {
+    background-color: #1e85e6
 }
 
 .wrap {

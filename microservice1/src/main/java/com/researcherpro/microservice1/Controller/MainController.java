@@ -2,6 +2,7 @@ package com.researcherpro.microservice1.Controller;
 
 import com.researcherpro.microservice1.Model.LoginCreds;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
