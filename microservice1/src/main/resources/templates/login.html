@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>LOGIN</title>
+    <link rel="stylesheet" th:href="@{/css/login_style.css}">
 </head>
 <body>
     <h1>LOGIN PAGE</h1>
+    <form action="">
+        <label for="first">
+            Username:
+        </label>
+        <input type="text" id="first" name="first"
+               placeholder="Enter your Username" required>
+        <label for="password">
+            Password:
+        </label>
+        <input type="password" id="password" name="password"
+               placeholder="Enter your Password" required>
+        <div class="wrap">
+            <button type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
 </body>
 </html>
