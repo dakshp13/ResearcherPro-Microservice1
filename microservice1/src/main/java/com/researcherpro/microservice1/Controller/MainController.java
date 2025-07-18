@@ -2,6 +2,7 @@ package com.researcherpro.microservice1.Controller;
 
 import com.researcherpro.microservice1.Model.LoginCreds;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,16 +20,16 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String loginAuth(@ModelAttribute LoginCreds loginCreds, Model model){
-        if(loginCreds.getUsername().equals("guest123")
-        && loginCreds.getPassword().equals("guest123")){
-            return "redirect:/api/analytics";
-        }
-        else{
-            model.addAttribute("error", "Failed Login");
-            return "login";
+    @ResponseBody
+    public ResponseEntity<String> loginAuth(@RequestBody LoginCreds loginCreds){
+        if(loginCreds.getUsername().equals("guest123") &&
+                loginCreds.getPassword().equals("guest123")){
+            return ResponseEntity.ok("Success");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Failed Login");
         }
     }
+
 
     @GetMapping("/analytics")
     public String analyticsPage(){
