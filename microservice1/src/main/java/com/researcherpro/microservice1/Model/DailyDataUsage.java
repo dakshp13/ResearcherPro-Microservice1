@@ -1,4 +1,4 @@
-package com.researcherpro.microservice1.RabbitMQ;
+package com.researcherpro.microservice1.Model;
 
 
 import lombok.AllArgsConstructor;

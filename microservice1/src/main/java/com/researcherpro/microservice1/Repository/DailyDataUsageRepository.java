@@ -1,6 +1,7 @@
-package com.researcherpro.microservice1.RabbitMQ;
+package com.researcherpro.microservice1.Repository;
 
 
+import com.researcherpro.microservice1.Model.DailyDataUsage;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
