@@ -1,4 +1,4 @@
-package com.researcherpro.microservice1;
+package com.researcherpro.microservice1.RabbitMQ;
 
 
 import lombok.AllArgsConstructor;
@@ -9,7 +9,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Document(collection = "daily-data-usage")
