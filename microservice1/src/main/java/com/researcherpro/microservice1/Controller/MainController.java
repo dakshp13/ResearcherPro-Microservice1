@@ -35,7 +35,6 @@ public class MainController {
         }
     }
 
-
     @GetMapping("/analytics")
     public String analyticsPage(){
         return "analytics";
