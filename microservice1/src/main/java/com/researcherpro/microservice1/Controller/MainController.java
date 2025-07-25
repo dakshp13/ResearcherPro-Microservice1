@@ -2,6 +2,7 @@ package com.researcherpro.microservice1.Controller;
 
 import com.researcherpro.microservice1.Model.LoginCreds;
 import com.researcherpro.microservice1.Service.GraphService;
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +27,10 @@ public class MainController {
 
     @PostMapping("/login")
     @ResponseBody
-    public ResponseEntity<String> loginAuth(@RequestBody LoginCreds loginCreds){
+    public ResponseEntity<String> loginAuth(@RequestBody LoginCreds loginCreds, HttpSession session){
         if(loginCreds.getUsername().equals("guest123") &&
                 loginCreds.getPassword().equals("guest123")){
+            session.setAttribute("authenticated", true);
             return ResponseEntity.ok("Success");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Failed Login");
@@ -36,8 +38,14 @@ public class MainController {
     }
 
     @GetMapping("/analytics")
-    public String analyticsPage(){
-        return "analytics";
+    public String analyticsPage(HttpSession session){
+        Boolean isAuthenticated = (Boolean) session.getAttribute("authenticated");
+        if(isAuthenticated != null && isAuthenticated) {
+            return "analytics";
+        }
+        else{
+            return "redirect:/api/login";
+        }
     }
 
     @GetMapping(value = "/analytics/graph", produces = "image/png")
