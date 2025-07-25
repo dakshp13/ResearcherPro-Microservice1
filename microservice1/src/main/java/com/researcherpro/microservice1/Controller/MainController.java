@@ -50,8 +50,14 @@ public class MainController {
 
     @GetMapping(value = "/analytics/graph", produces = "image/png")
     @ResponseBody
-    public byte[] getAnalyticsGraph() throws IOException {
-        return graphService.getAnalyticsGraph();
+    public byte[] getAnalyticsGraph(HttpSession session) throws IOException {
+        Boolean isAuthenticated = (Boolean) session.getAttribute("authenticated");
+        if(isAuthenticated != null && isAuthenticated) {
+            return graphService.getAnalyticsGraph();
+        }
+        else{
+            return null;
+        }
     }
 
 }
